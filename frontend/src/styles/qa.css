@@ -1,0 +1,16 @@
+.data-table td.positive { color: var(--success); }
+.data-table td.negative { color: var(--error); }
+.metric-strip article.warning { box-shadow: inset 3px 0 #f59e0b; }
+.metric-strip article.warning strong, .warning-text { color: #fbbf24; }
+.analysis-paused { display:flex; flex-direction:column; gap:5px; margin:0 0 12px; padding:14px 16px; border:1px solid #f59e0b55; border-radius:var(--radius); background:#f59e0b0c; }
+.analysis-paused strong { color:#fbbf24; font-size:12px; }
+.analysis-paused span { font-size:11px; }
+.analysis-paused small { color:var(--text-3); }
+.god-overview-grid { display:grid; grid-template-columns:2fr 1fr; gap:12px; }
+.god-overview-grid > section { min-width:0; padding:16px; border:1px solid var(--stroke); border-radius:var(--radius); background:var(--panel); }
+.god-overview-grid h2 { margin:0 0 12px; font-size:12px; }
+.god-counts { display:grid; grid-template-columns:1fr 1fr; gap:8px; }
+.god-counts span { display:flex; flex-direction:column; gap:5px; padding:10px; background:#0b1018; color:var(--text-3); font-size:8px; }
+.god-counts strong { color:var(--text); font-size:11px; }
+.metric-strip strong { overflow:hidden; text-overflow:ellipsis; }
+@media (max-width: 820px) { .god-overview-grid { grid-template-columns:1fr; } }

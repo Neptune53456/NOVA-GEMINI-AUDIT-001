@@ -1,0 +1,45 @@
+{
+  "version": "v1-hardening-baseline",
+  "timestamp": "2026-09-17T00:00:00+02:00",
+  "git_branch": "feature/nova-interface-foundation",
+  "capability_count": 22,
+  "architecture": [
+    {"component": "conversation_sse", "status": "implemented", "evidence": "nova_api/conversation_service.py"},
+    {"component": "model_router_provider_fallback", "status": "implemented", "evidence": "model_router.py"},
+    {"component": "agent_loop", "status": "implemented", "evidence": "nova_api/agent_loop.py"},
+    {"component": "goal_runner", "status": "implemented", "evidence": "nova_api/autonomy.py"},
+    {"component": "mission_manager_store", "status": "implemented", "evidence": "nova_api/missions.py"},
+    {"component": "event_journal", "status": "implemented", "evidence": "nova_api/journal.py"},
+    {"component": "transactions_rollback", "status": "implemented", "evidence": "nova_api/transactions.py"},
+    {"component": "memory_context_project_brain", "status": "implemented", "evidence": "nova_api/memory_store.py; nova_api/context_builder.py; nova_api/project_brain.py"},
+    {"component": "filesystem_git_tools", "status": "implemented", "evidence": "nova_api/capabilities.py"},
+    {"component": "computer_perception_uia", "status": "implemented_windows", "evidence": "nova_api/computer.py; nova_api/windows_uia.py"},
+    {"component": "visual_local_foundation", "status": "implemented_degraded", "evidence": "nova_api/visual.py"},
+    {"component": "confirmation_system", "status": "implemented", "evidence": "nova_api/agent_loop.py; nova_api/autonomy.py"},
+    {"component": "frontend_conversation_cockpit", "status": "implemented", "evidence": "frontend/src/features/conversation/ConversationPage.tsx; frontend/src/components/NovaPresence.tsx"}
+  ],
+  "known_limitations": [
+    "Visual cloud/provider validation remains externally dependent and is not established by this baseline.",
+    "The structured initial planner depends on provider behavior plus bounded normalization and schema validation.",
+    "Confirmation tokens are held in process memory and are expiry-sensitive.",
+    "The frontend package defines lint and build scripts but no automated test script or framework.",
+    "A historical capability assertion expected exactly 18 entries while the authoritative registry now exposes 22; the assertion is made structural in Phase 1.",
+    "Provider availability, payment, quota and cooldown can affect planner routing.",
+    "The event journal does not currently correlate provider attempts, fallback decisions, or transaction rollback events to every goal."
+  ],
+  "validated_real_paths": [
+    "natural-language goal -> structured planning -> GoalRunner -> confirmation -> filesystem.write -> filesystem.read -> completed_verified"
+  ],
+  "unvalidated_or_degraded_paths": [
+    "cloud visual-provider end-to-end validation",
+    "full 24-scenario hardening campaign",
+    "frontend automated regression suite",
+    "per-goal provider-attempt and fallback attribution",
+    "per-goal restart/recovery and rollback attribution"
+  ],
+  "metrics": {
+    "AVAILABLE_NOW": ["scenario_id", "started_at", "completed_at", "elapsed_ms", "terminal_status", "verified_success", "model_calls", "actions_total", "discovery_actions", "mutating_actions", "replans", "failed_steps", "confirmations_requested", "confirmations_rejected", "error_categories", "critical_failure"],
+    "DERIVABLE": ["confirmations_approved", "tokens_in when journaled", "tokens_out when journaled", "local_only when provider attribution is journaled"],
+    "NOT_YET_AVAILABLE": ["provider_attempts", "provider_fallbacks", "rollback_count correlated to goal", "recovery_count", "restart_resume"]
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "milestone": "Nova 1.5 Real-World Intelligence Foundation",
+  "frozen_v1_artifacts_modified": false,
+  "targeted_validation": {
+    "focused_passed": 77,
+    "focused_failed": 0,
+    "wider_relevant_passed": 138,
+    "wider_relevant_deselected": 2
+  },
+  "local_ocr": {
+    "backend": "tesseract-local",
+    "real_adapter_execution": true,
+    "synthetic_image_text_detected": ["NOVA", "SAVE", "REPORT"],
+    "windows_real_app_quality_validated": false
+  },
+  "endurance_probe": {
+    "status": "PASS",
+    "iterations": 120,
+    "unique_goals": 120,
+    "terminal_completed_verified": 120,
+    "provider_calls": 0,
+    "elapsed_ms": 628,
+    "median_step_ms": 3,
+    "max_step_ms": 9,
+    "claim": "deterministic restart/store probe only"
+  },
+  "windows_multi_app": {
+    "status": "NOT_EXECUTABLE",
+    "reason": "validation environment is not Windows"
+  },
+  "full_suite": {
+    "status": "BLOCKED_DURING_COLLECTION",
+    "reason": "hypothesis dependency unavailable in validation environment"
+  },
+  "known_environment_limits": ["comtypes unavailable", "ollama unavailable", "hypothesis unavailable"]
+}

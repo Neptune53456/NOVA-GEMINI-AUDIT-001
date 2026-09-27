@@ -1,0 +1,29 @@
+{
+  "version": "v1-hardening-phase2-failure-clusters",
+  "clusters": [
+    {
+      "cluster_id": "P2-HARNESS-01",
+      "primary_cluster": "HARNESS_LIMITATION",
+      "affected_scenario_ids": ["CONV-02", "GOAL-01", "LEGACY-PC-001", "LEGACY-PC-002", "LEGACY-PC-003", "LEGACY-PC-004", "LEGACY-PC-005", "LEGACY-PC-006", "LEGACY-PC-007", "LEGACY-PC-008", "LEGACY-1000-001", "LEGACY-1000-002", "LEGACY-1000-003", "LEGACY-1000-004", "LEGACY-1000-005", "LEGACY-1000-006", "LEGACY-1000-007", "LEGACY-1000-008"],
+      "observed_symptom": "The current benchmark foundation records completed goals but cannot drive and deterministically judge arbitrary multi-turn legacy conversations; two official contracts also lack complete scenario-level drivers.",
+      "likely_subsystem": "benchmark campaign runner and evidence adapters",
+      "evidence": "Existing targeted tests cover component contracts, while no reusable scenario loader binds legacy conversations to journal/goal evidence. No legacy case was promoted to PASS from static capability presence.",
+      "confidence": "high",
+      "root_cause": "proven",
+      "expected_blast_radius": "All imported natural-language, multi-turn, ambiguity, change-of-mind, unavailable-attachment, and action-routing cases.",
+      "suggested_phase3_action": "Build an isolated conversation scenario runner with scripted/mock provider turns, fixture workspaces, journal capture, and deterministic criterion adapters before rerunning the same frozen IDs."
+    },
+    {
+      "cluster_id": "P2-UI-01",
+      "primary_cluster": "STATE_SYNC_UI",
+      "affected_scenario_ids": ["UI-01"],
+      "observed_symptom": "Backend authoritative state transition passed, but conversation card and presence panel agreement was not automatically observed.",
+      "likely_subsystem": "frontend test harness",
+      "evidence": "Repository baseline explicitly records no frontend automated test framework; no frontend build or lint was run because Phase 2 did not modify frontend code.",
+      "confidence": "high",
+      "root_cause": "proven",
+      "expected_blast_radius": "Visual UI synchronization regressions may escape backend-only validation.",
+      "suggested_phase3_action": "Add one focused frontend state-projection regression harness for confirmation, completion, blocked, failed, and cancelled states."
+    }
+  ]
+}

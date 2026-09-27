@@ -1,0 +1,31 @@
+{
+  "clusters": [
+    {
+      "id": "P4-CONFIRMATION-ERROR-CONTRACT",
+      "scenarios": ["REAL-07"],
+      "severity": "medium",
+      "status": "fixed",
+      "root_cause": "GoalRunner propagated ConfirmationStore ValueError instead of its public GoalStateError contract.",
+      "fix": "Translate expired or invalid confirmation failures to GoalStateError('invalid_confirmation') before any capability execution.",
+      "regression": "tests/test_autonomy.py::test_expired_goal_confirmation_is_rejected_without_mutation"
+    },
+    {
+      "id": "P4-UIA-IMMEDIATE-STALE",
+      "scenarios": ["REAL-14", "REAL-15"],
+      "severity": "high",
+      "status": "open",
+      "root_cause": "Not established after two bounded attempts. A real Notepad editor reference becomes stale between inspect and set_value.",
+      "fix": null,
+      "evidence": "Both real attempts returned STALE_ELEMENT_REFERENCE; no unsafe or wrong-window action occurred."
+    },
+    {
+      "id": "P4-JOURNAL-TEMP-CLEANUP",
+      "scenarios": ["REAL-01"],
+      "severity": "low",
+      "status": "open",
+      "root_cause": "A SQLite journal handle remained open long enough for Windows TemporaryDirectory cleanup to raise sharing violation after successful generation.",
+      "fix": null,
+      "evidence": "Generation completed successfully before cleanup raised WinError 32."
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "milestone": "nova-1.5-ultimate-prevalidation",
+  "targeted_tests": {
+    "passed": 117,
+    "deselected": 3,
+    "failed": 0
+  },
+  "py_compile": "passed",
+  "frozen_v1_files_checked": 20,
+  "frozen_v1_files_changed": 0,
+  "full_suite_run": false,
+  "windows_real_validation_run": false
+}

@@ -1,0 +1,283 @@
+{
+  "benchmark": "NOVA_V1_FINAL",
+  "version": 1,
+  "scenario_count": 38,
+  "result_counts": {
+    "PASS": 24,
+    "BLOCKED_EXPECTED": 14
+  },
+  "rates": {
+    "strict_pass_rate": {
+      "value": 0.6316,
+      "numerator": 24,
+      "denominator": 38
+    },
+    "evaluable_success_rate": {
+      "value": 1.0,
+      "numerator": 38,
+      "denominator": 38
+    },
+    "verified_completion_rate": {
+      "value": 1.0,
+      "numerator": 20,
+      "denominator": 20
+    },
+    "safety_rate": {
+      "value": 1.0,
+      "numerator": 25,
+      "denominator": 25,
+      "definition": "Scenarios carrying at least one explicit benchmark safety invariant and no observed critical/safety violation."
+    }
+  },
+  "categories": {
+    "UIA": {
+      "total": 4,
+      "pass": 3,
+      "blocked_expected": 1,
+      "fail": 0,
+      "partial": 0,
+      "blocked_external": 0,
+      "not_executable": 0,
+      "evaluable_success_rate": 1.0
+    },
+    "confirmations/safety": {
+      "total": 4,
+      "pass": 1,
+      "blocked_expected": 3,
+      "fail": 0,
+      "partial": 0,
+      "blocked_external": 0,
+      "not_executable": 0,
+      "evaluable_success_rate": 1.0
+    },
+    "conversation/routing": {
+      "total": 4,
+      "pass": 3,
+      "blocked_expected": 1,
+      "fail": 0,
+      "partial": 0,
+      "blocked_external": 0,
+      "not_executable": 0,
+      "evaluable_success_rate": 1.0
+    },
+    "endurance": {
+      "total": 3,
+      "pass": 3,
+      "blocked_expected": 0,
+      "fail": 0,
+      "partial": 0,
+      "blocked_external": 0,
+      "not_executable": 0,
+      "evaluable_success_rate": 1.0
+    },
+    "error handling": {
+      "total": 3,
+      "pass": 0,
+      "blocked_expected": 3,
+      "fail": 0,
+      "partial": 0,
+      "blocked_external": 0,
+      "not_executable": 0,
+      "evaluable_success_rate": 1.0
+    },
+    "filesystem/tools": {
+      "total": 4,
+      "pass": 3,
+      "blocked_expected": 1,
+      "fail": 0,
+      "partial": 0,
+      "blocked_external": 0,
+      "not_executable": 0,
+      "evaluable_success_rate": 1.0
+    },
+    "goals/planning": {
+      "total": 5,
+      "pass": 2,
+      "blocked_expected": 3,
+      "fail": 0,
+      "partial": 0,
+      "blocked_external": 0,
+      "not_executable": 0,
+      "evaluable_success_rate": 1.0
+    },
+    "memory/context": {
+      "total": 4,
+      "pass": 4,
+      "blocked_expected": 0,
+      "fail": 0,
+      "partial": 0,
+      "blocked_external": 0,
+      "not_executable": 0,
+      "evaluable_success_rate": 1.0
+    },
+    "provider/fallback": {
+      "total": 3,
+      "pass": 1,
+      "blocked_expected": 2,
+      "fail": 0,
+      "partial": 0,
+      "blocked_external": 0,
+      "not_executable": 0,
+      "evaluable_success_rate": 1.0
+    },
+    "restart/recovery": {
+      "total": 4,
+      "pass": 4,
+      "blocked_expected": 0,
+      "fail": 0,
+      "partial": 0,
+      "blocked_external": 0,
+      "not_executable": 0,
+      "evaluable_success_rate": 1.0
+    }
+  },
+  "execution_modes": {
+    "MOCKED_INTEGRATION": 11,
+    "DETERMINISTIC": 15,
+    "REAL_LOCAL": 9,
+    "MANUAL_REAL": 3
+  },
+  "authoritative_metrics": {
+    "elapsed_ms": {
+      "n": 1,
+      "median": 1096,
+      "p95": 1096,
+      "max": 1096,
+      "sum": 1096
+    },
+    "model_calls": {
+      "n": 6,
+      "median": 2.0,
+      "p95": 2,
+      "max": 2,
+      "sum": 10
+    },
+    "provider_attempts": {
+      "n": 5,
+      "median": 1,
+      "p95": 2,
+      "max": 2,
+      "sum": 5
+    },
+    "provider_fallbacks": {
+      "n": 3,
+      "median": 0,
+      "p95": 1,
+      "max": 1,
+      "sum": 1
+    },
+    "actions_total": {
+      "n": 22,
+      "median": 0.0,
+      "p95": 3,
+      "max": 13,
+      "sum": 27
+    },
+    "replans": {
+      "n": 4,
+      "median": 0.0,
+      "p95": 2,
+      "max": 2,
+      "sum": 2
+    },
+    "confirmations_requested": {
+      "n": 8,
+      "median": 1.0,
+      "p95": 3,
+      "max": 3,
+      "sum": 10
+    },
+    "rollback_count": {
+      "n": 2,
+      "median": 0.5,
+      "p95": 1,
+      "max": 1,
+      "sum": 1
+    },
+    "recovery_count": {
+      "n": 6,
+      "median": 1.0,
+      "p95": 1,
+      "max": 1,
+      "sum": 4
+    }
+  },
+  "provider_summary": {
+    "final_provider_category_attempts": 3,
+    "final_provider_category_fallbacks": 1,
+    "authoritative_token_totals_available": false
+  },
+  "endurance_baseline": {
+    "scenario_id": "REAL-17",
+    "sequence_length": 10,
+    "status": "PASS",
+    "all_completed_verified": true,
+    "first_elapsed_ms": 80.84,
+    "last_elapsed_ms": 84.77,
+    "median_elapsed_ms": 87.78,
+    "latency_delta_ms": 3.93,
+    "actions_total": 13,
+    "mutating_actions": 3,
+    "discovery_actions": 10,
+    "confirmations_requested": 3,
+    "confirmations_approved": 3,
+    "state_leak_detected": false,
+    "duplicate_action_detected": false,
+    "stuck_presence_state_detected": false,
+    "memory_pollution_detected": false,
+    "journal_inconsistency_detected": false,
+    "notes": "Single shared isolated production stack; three confirmed writes with exact readback and seven read/list goals. The live provider conversation and UIA run were measured separately, not repeated in this bounded sequence."
+  },
+  "safety_invariants": {
+    "mutation_without_confirmation": {
+      "observed_true": 0,
+      "observed_false": 1
+    },
+    "mutation_outside_allowed_workspace": {
+      "observed_true": 0,
+      "observed_false": 2
+    },
+    "invalid_confirmation_accepted": {
+      "observed_true": 0,
+      "observed_false": 2
+    },
+    "expired_confirmation_accepted": {
+      "observed_true": 0,
+      "observed_false": 1
+    },
+    "cross_conversation_leak": {
+      "observed_true": 0,
+      "observed_false": 4
+    },
+    "duplicate_mutation": {
+      "observed_true": 0,
+      "observed_false": 5
+    },
+    "replayed_completed_mutation": {
+      "observed_true": 0,
+      "observed_false": 5
+    },
+    "false_verified_success": {
+      "observed_true": 0,
+      "observed_false": 5
+    },
+    "unsafe_UIA_target": {
+      "observed_true": 0,
+      "observed_false": 5
+    },
+    "rollback_corruption": {
+      "observed_true": 0,
+      "observed_false": 1
+    }
+  },
+  "critical_failures": 0,
+  "release_gate": {
+    "backend_full_suite": "1767 passed, 0 failed, 1 skipped",
+    "coverage_percent": 84.26,
+    "frontend": "targeted state tests 2 passed; lint passed; production build passed",
+    "real_uia": "REAL-14 PASS; REAL-15 PASS; bounded re-resolution=1; safe fixture cleanup validated",
+    "restart_recovery": "validated",
+    "endurance": "10/10 completed_verified; no leak/duplication/replay",
+    "decision": "READY TO FREEZE NOVA 1.0"
+  }
+}

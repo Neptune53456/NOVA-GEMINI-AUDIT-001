@@ -1,0 +1,58 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# Virtual environments
+.venv/
+
+# IDE
+.vscode/
+.idea/
+
+# Test caches
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Type checking
+.mypy_cache/
+.ruff_cache/
+
+# Local databases
+*.sqlite3
+*.db
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Runtime artifacts
+.runtime/
+tmp_debug_repair/
+.self_improvement_recovery/
+
+# Logs
+*.log
+
+# Reports
+self_improvement/reports/
+
+# Test outputs
+test_output.txt
+test_results.txt
+validation_output.txt
+
+# Profiles
+abc_profile_result.json
+abc_public_profile.jsonl
+abc_replay_exact.json
+budget_fix_real_evidence.json
+
+# Build artifacts
+frontend/node_modules/
+frontend/dist/
+
+# Misc
+*.zip

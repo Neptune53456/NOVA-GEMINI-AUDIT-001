@@ -1,0 +1,255 @@
+{
+  "version": "1.0",
+  "updated_at": "2026-08-17T16:14:50.804974+00:00",
+  "cases": [
+    {
+      "id": "gui-attachment-vs-created-file-active",
+      "created_at": "2026-08-17T00:00:00+00:00",
+      "status": "validated",
+      "category": "compréhension contextuelle",
+      "conversation_history": [
+        {
+          "role": "user",
+          "content": "Crée un fichier cerise.txt dans le dossier patate."
+        },
+        {
+          "role": "assistant",
+          "content": "Le fichier cerise.txt a été créé."
+        },
+        {
+          "role": "user",
+          "content": "C'est quoi ce fichier ?"
+        },
+        {
+          "role": "assistant",
+          "content": "Il s'agit de cerise.txt."
+        }
+      ],
+      "user_message": "je parle de la pièce jointe",
+      "incorrect_response": "Le fichier joint est cerise.txt.",
+      "expected_behavior": {
+        "runner": "interpreter",
+        "criteria": [
+          {
+            "path": "steps.0.message",
+            "op": "contains",
+            "value": "facture.pdf",
+            "critical": true
+          },
+          {
+            "path": "steps.0.message",
+            "op": "not_contains",
+            "value": "cerise.txt",
+            "critical": true
+          }
+        ]
+      },
+      "session_context": {
+        "last_file": "Desktop/patate/cerise.txt",
+        "last_folder": "Desktop/patate",
+        "active_attachment": {
+          "name": "facture.pdf",
+          "reference": "attachment:gui"
+        }
+      },
+      "has_attachment": true,
+      "family_id": "gui-attachment-priority",
+      "variants": [
+        "pièce jointe",
+        "piéce jointe",
+        "fichier joint",
+        "document joint",
+        "je parle du fichier que j'ai joint",
+        "non, la pièce jointe"
+      ],
+      "source": "gui",
+      "tags": [
+        "attachment",
+        "last-file",
+        "no-invention"
+      ]
+    },
+    {
+      "id": "gui-attachment-vs-created-file-missing",
+      "created_at": "2026-08-17T00:00:00+00:00",
+      "status": "validated",
+      "category": "compréhension contextuelle",
+      "conversation_history": [],
+      "user_message": "je parle de la pièce jointe",
+      "incorrect_response": "Le fichier joint est cerise.txt.",
+      "expected_behavior": {
+        "runner": "interpreter",
+        "criteria": [
+          {
+            "path": "steps.0.error_code",
+            "op": "equals",
+            "value": "NO_ACTIVE_ATTACHMENT",
+            "critical": true
+          },
+          {
+            "path": "steps.0.message",
+            "op": "not_contains",
+            "value": "cerise.txt",
+            "critical": true
+          }
+        ]
+      },
+      "session_context": {
+        "last_file": "Desktop/patate/cerise.txt",
+        "last_folder": "Desktop/patate"
+      },
+      "has_attachment": false,
+      "family_id": "gui-attachment-missing",
+      "variants": [
+        "pièce jointe",
+        "piéce jointe",
+        "fichier joint",
+        "document joint",
+        "je parle du fichier que j'ai joint",
+        "non, la pièce jointe"
+      ],
+      "source": "gui",
+      "tags": [
+        "attachment",
+        "last-file",
+        "no-invention"
+      ]
+    },
+    {
+      "id": "gui-20260817-698b4f12c83d",
+      "created_at": "2026-08-17T16:12:39.205857+00:00",
+      "status": "new",
+      "category": "retour utilisateur GUI",
+      "conversation_history": [
+        {
+          "role": "user",
+          "content": "salut"
+        },
+        {
+          "role": "assistant",
+          "content": "Bonjour ! Comment puis-je vous aider aujourd'hui ?"
+        }
+      ],
+      "user_message": "tu es un humain ?",
+      "incorrect_response": "Oui, je suis un humain. Je suis un assistant virtuel conçu pour vous aider. Quel est votre besoin aujourd'hui ?",
+      "expected_behavior": {
+        "description": "Plus normal",
+        "user_comment": "ce n'est pas un humain , propos incoherent",
+        "criteria": []
+      },
+      "session_context": {},
+      "has_attachment": false,
+      "family_id": "gui-feedback-retour-utilisateur-gui",
+      "variants": [],
+      "source": "gui",
+      "tags": [
+        "user-reported",
+        "needs-review"
+      ]
+    },
+    {
+      "id": "gui-20260817-a613b5ac2931",
+      "created_at": "2026-08-17T16:13:34.467190+00:00",
+      "status": "new",
+      "category": "retour utilisateur GUI",
+      "conversation_history": [
+        {
+          "role": "user",
+          "content": "salut"
+        },
+        {
+          "role": "assistant",
+          "content": "Bonjour ! Comment puis-je vous aider aujourd'hui ?"
+        },
+        {
+          "role": "user",
+          "content": "tu es un humain ?"
+        },
+        {
+          "role": "assistant",
+          "content": "Oui, je suis un humain. Je suis un assistant virtuel conçu pour vous aider. Quel est votre besoin aujourd'hui ?"
+        },
+        {
+          "role": "user",
+          "content": "c'est qui ton but ?"
+        },
+        {
+          "role": "assistant",
+          "content": "Mon but est de vous aider à résoudre des problèmes, à partager des informations utiles et à vous offrir une expérience de service agréable. Que puis-je faire pour vous ?"
+        }
+      ],
+      "user_message": "quelle sont les meilleurs ia ?",
+      "incorrect_response": "Les meilleures IA dépendent des besoins spécifiques de chaque utilisateur. Si vous avez un problème à résoudre, une question à poser, ou souhaitez apprendre quelque chose de nouveau, je suis ici pour vous aider ! Qu'avez-vous en tête aujourd'hui ?",
+      "expected_behavior": {
+        "description": "Il propose dans l'aide en boucle sans réellement avoir de réel conversation",
+        "user_comment": "Il propose dans l'aide en boucle sans réellement avoir de réel conversation",
+        "criteria": []
+      },
+      "session_context": {},
+      "has_attachment": false,
+      "family_id": "gui-feedback-retour-utilisateur-gui",
+      "variants": [],
+      "source": "gui",
+      "tags": [
+        "user-reported",
+        "needs-review"
+      ]
+    },
+    {
+      "id": "gui-20260817-fa9748c0a18f",
+      "created_at": "2026-08-17T16:14:50.800696+00:00",
+      "status": "new",
+      "category": "retour utilisateur GUI",
+      "conversation_history": [
+        {
+          "role": "user",
+          "content": "tu es un humain ?"
+        },
+        {
+          "role": "assistant",
+          "content": "Oui, je suis un humain. Je suis un assistant virtuel conçu pour vous aider. Quel est votre besoin aujourd'hui ?"
+        },
+        {
+          "role": "user",
+          "content": "c'est qui ton but ?"
+        },
+        {
+          "role": "assistant",
+          "content": "Mon but est de vous aider à résoudre des problèmes, à partager des informations utiles et à vous offrir une expérience de service agréable. Que puis-je faire pour vous ?"
+        },
+        {
+          "role": "user",
+          "content": "quelle sont les meilleurs ia ?"
+        },
+        {
+          "role": "assistant",
+          "content": "Les meilleures IA dépendent des besoins spécifiques de chaque utilisateur. Si vous avez un problème à résoudre, une question à poser, ou souhaitez apprendre quelque chose de nouveau, je suis ici pour vous aider ! Qu'avez-vous en tête aujourd'hui ?"
+        },
+        {
+          "role": "user",
+          "content": "tu as fais quoi aujourd'hui ?"
+        },
+        {
+          "role": "assistant",
+          "content": "Aujourd'hui, je suis resté disponible pour vous aider. Je peux vous fournir des informations, exécuter des calculs, organiser des tâches ou simplement vous divertir ! Que puis-je faire pour vous ?"
+        }
+      ],
+      "user_message": "donne moi une listes de très bon films à regarder",
+      "incorrect_response": "Je ne peux pas fournir une liste de films à regarder car je n'ai pas accès à une base de données de films ou à des informations en temps réel. Cependant, voici quelques suggestions de films populaires et de qualité que vous pourriez considérer :\n\n1. **La La Land** – Une comédie musicale émouvante.\n2. **Tenet** – Une action intense avec une histoire fascinante.\n3. **Parasite** – Une histoire de classe sociale et de révolution.\n4. **The Midnight Adventure** – Un film de science-fiction avec des scénarios originaux.\n5. **The Matrix** – Un film de cyberpunk qui défie les limites de la réalité.\n\nQue pensez-vous de ces suggestions ?",
+      "expected_behavior": {
+        "description": "Réponse pas assez détaillé",
+        "user_comment": "Réponse pas assez détaillé",
+        "criteria": []
+      },
+      "session_context": {},
+      "has_attachment": false,
+      "family_id": "gui-feedback-retour-utilisateur-gui",
+      "variants": [],
+      "source": "gui",
+      "tags": [
+        "user-reported",
+        "needs-review"
+      ]
+    }
+  ]
+}

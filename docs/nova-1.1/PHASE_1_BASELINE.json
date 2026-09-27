@@ -1,0 +1,19 @@
+{
+  "version": "Nova 1.1 Phase 1+2 development",
+  "v1_baseline_immutable": true,
+  "measurement_changes": {
+    "model_usage_ledger": true,
+    "authoritative_tokens_nullable": true,
+    "durable_transactions": true,
+    "durable_confirmation_records": true,
+    "bounded_conversation_persistence": true,
+    "shared_execution_kernel": true,
+    "mission_restart_reconciliation": true
+  },
+  "claims_not_made": [
+    "token efficiency improved",
+    "multi-hour endurance proven",
+    "general Windows automation proven",
+    "full GoalRunner/MissionManager merge complete"
+  ]
+}

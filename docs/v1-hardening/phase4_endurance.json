@@ -1,0 +1,21 @@
+{
+  "scenario_id": "REAL-17",
+  "sequence_length": 10,
+  "status": "PASS",
+  "all_completed_verified": true,
+  "first_elapsed_ms": 80.84,
+  "last_elapsed_ms": 84.77,
+  "median_elapsed_ms": 87.78,
+  "latency_delta_ms": 3.93,
+  "actions_total": 13,
+  "mutating_actions": 3,
+  "discovery_actions": 10,
+  "confirmations_requested": 3,
+  "confirmations_approved": 3,
+  "state_leak_detected": false,
+  "duplicate_action_detected": false,
+  "stuck_presence_state_detected": false,
+  "memory_pollution_detected": false,
+  "journal_inconsistency_detected": false,
+  "notes": "Single shared isolated production stack; three confirmed writes with exact readback and seven read/list goals. The live provider conversation and UIA run were measured separately, not repeated in this bounded sequence."
+}

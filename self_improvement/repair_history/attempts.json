@@ -1,0 +1,750 @@
+{
+  "version": 2,
+  "attempts": [
+    {
+      "root_cause_id": "rc-50858b4d4cec15ff",
+      "operator": "document_routing",
+      "patch_signature": "2a402806c6d6848db1d4392af94bd8ea213c92ace2019a204440012c091bfcbf",
+      "outcome": "rejected",
+      "rejection_stage": "no_behavior_change",
+      "rejection_reason": "Aucun scénario représentatif ciblé n'a changé.",
+      "files_changed": [
+        "document_command_router.py"
+      ],
+      "behavioral_effect": false,
+      "duration_seconds": 3.187,
+      "recorded_at": "2026-08-17T19:01:28.728378+00:00",
+      "evaluation_version": "legacy",
+      "engine_schema_version": "self-repair-history-v1",
+      "canonical_cause": "rc-50858b4d4cec15ff",
+      "created_at": "2026-08-17T19:01:28.728378+00:00",
+      "retry_count": 0
+    },
+    {
+      "root_cause_id": "rc-50858b4d4cec15ff",
+      "operator": "regex_repair",
+      "patch_signature": "e44b346e02af3ba99f6b7995a0717e7cd12faeab8e94dd1f73997d94d29558d7",
+      "outcome": "rejected",
+      "rejection_stage": "no_behavior_change",
+      "rejection_reason": "Aucun scénario représentatif ciblé n'a changé.",
+      "files_changed": [
+        "document_command_router.py"
+      ],
+      "behavioral_effect": false,
+      "duration_seconds": 3.351,
+      "recorded_at": "2026-08-17T19:01:32.234983+00:00",
+      "evaluation_version": "legacy",
+      "engine_schema_version": "self-repair-history-v1",
+      "canonical_cause": "rc-50858b4d4cec15ff",
+      "created_at": "2026-08-17T19:01:32.234983+00:00",
+      "retry_count": 0
+    },
+    {
+      "root_cause_id": "rc-7d254ce3a719ac1f",
+      "operator": "confirmation",
+      "patch_signature": "933a96228bc50408fe35cc34b5ba50883671f4b9aec87e1ccaa0fa4812c96ae9",
+      "outcome": "rejected",
+      "rejection_stage": "no_behavior_change",
+      "rejection_reason": "Aucun scénario représentatif ciblé n'a changé.",
+      "files_changed": [
+        "system_action_controller.py"
+      ],
+      "behavioral_effect": false,
+      "duration_seconds": 2.966,
+      "recorded_at": "2026-08-17T19:01:35.362049+00:00",
+      "evaluation_version": "legacy",
+      "engine_schema_version": "self-repair-history-v1",
+      "canonical_cause": "rc-7d254ce3a719ac1f",
+      "created_at": "2026-08-17T19:01:35.362049+00:00",
+      "retry_count": 0
+    },
+    {
+      "root_cause_id": "rc-7d254ce3a719ac1f",
+      "operator": "text_normalization",
+      "patch_signature": "295d0748102a7873324a088b4a22003fd401fa1425c7d092e456772248ed84e3",
+      "outcome": "rejected",
+      "rejection_stage": "no_behavior_change",
+      "rejection_reason": "Aucun scénario représentatif ciblé n'a changé.",
+      "files_changed": [
+        "system_action_controller.py",
+        "system_action_controller.py"
+      ],
+      "behavioral_effect": false,
+      "duration_seconds": 2.712,
+      "recorded_at": "2026-08-17T19:01:38.255206+00:00",
+      "evaluation_version": "legacy",
+      "engine_schema_version": "self-repair-history-v1",
+      "canonical_cause": "rc-7d254ce3a719ac1f",
+      "created_at": "2026-08-17T19:01:38.255206+00:00",
+      "retry_count": 0
+    },
+    {
+      "root_cause_id": "rc-3bf3622feb997e98",
+      "operator": "document_routing",
+      "patch_signature": "2a402806c6d6848db1d4392af94bd8ea213c92ace2019a204440012c091bfcbf",
+      "outcome": "rejected",
+      "rejection_stage": "no_behavior_change",
+      "rejection_reason": "Aucun scénario représentatif ciblé n'a changé.",
+      "files_changed": [
+        "document_command_router.py"
+      ],
+      "behavioral_effect": false,
+      "duration_seconds": 3.118,
+      "recorded_at": "2026-08-17T19:01:41.537140+00:00",
+      "evaluation_version": "legacy",
+      "engine_schema_version": "self-repair-history-v1",
+      "canonical_cause": "rc-3bf3622feb997e98",
+      "created_at": "2026-08-17T19:01:41.537140+00:00",
+      "retry_count": 0
+    },
+    {
+      "root_cause_id": "rc-3bf3622feb997e98",
+      "operator": "regex_repair",
+      "patch_signature": "e44b346e02af3ba99f6b7995a0717e7cd12faeab8e94dd1f73997d94d29558d7",
+      "outcome": "rejected",
+      "rejection_stage": "no_behavior_change",
+      "rejection_reason": "Aucun scénario représentatif ciblé n'a changé.",
+      "files_changed": [
+        "document_command_router.py"
+      ],
+      "behavioral_effect": false,
+      "duration_seconds": 3.668,
+      "recorded_at": "2026-08-17T19:01:45.387796+00:00",
+      "evaluation_version": "legacy",
+      "engine_schema_version": "self-repair-history-v1",
+      "canonical_cause": "rc-3bf3622feb997e98",
+      "created_at": "2026-08-17T19:01:45.387796+00:00",
+      "retry_count": 0
+    },
+    {
+      "root_cause_id": "rc-348d03f2aa78b5c7",
+      "operator": "context_priority",
+      "patch_signature": "f23c45cb6d3503730da8b1f290dc4d52fc0c2bbc60577e210b1884991dbcc5ef",
+      "outcome": "rejected",
+      "rejection_stage": "no_behavior_change",
+      "rejection_reason": "Aucun scénario représentatif ciblé n'a changé.",
+      "files_changed": [
+        "request_interpreter.py"
+      ],
+      "behavioral_effect": false,
+      "duration_seconds": 3.633,
+      "recorded_at": "2026-08-17T19:01:49.218976+00:00",
+      "evaluation_version": "legacy",
+      "engine_schema_version": "self-repair-history-v1",
+      "canonical_cause": "rc-348d03f2aa78b5c7",
+      "created_at": "2026-08-17T19:01:49.218976+00:00",
+      "retry_count": 0
+    },
+    {
+      "root_cause_id": "rc-348d03f2aa78b5c7",
+      "operator": "text_normalization",
+      "patch_signature": "295d0748102a7873324a088b4a22003fd401fa1425c7d092e456772248ed84e3",
+      "outcome": "rejected",
+      "rejection_stage": "no_behavior_change",
+      "rejection_reason": "Aucun scénario représentatif ciblé n'a changé.",
+      "files_changed": [
+        "system_action_controller.py",
+        "system_action_controller.py"
+      ],
+      "behavioral_effect": false,
+      "duration_seconds": 3.182,
+      "recorded_at": "2026-08-17T19:01:52.601453+00:00",
+      "evaluation_version": "legacy",
+      "engine_schema_version": "self-repair-history-v1",
+      "canonical_cause": "rc-348d03f2aa78b5c7",
+      "created_at": "2026-08-17T19:01:52.601453+00:00",
+      "retry_count": 0
+    },
+    {
+      "root_cause_id": "rc-37d5730e8251dfd7",
+      "operator": "context_priority",
+      "patch_signature": "f23c45cb6d3503730da8b1f290dc4d52fc0c2bbc60577e210b1884991dbcc5ef",
+      "outcome": "rejected",
+      "rejection_stage": "no_behavior_change",
+      "rejection_reason": "Aucun scénario représentatif ciblé n'a changé.",
+      "files_changed": [
+        "request_interpreter.py"
+      ],
+      "behavioral_effect": false,
+      "duration_seconds": 3.796,
+      "recorded_at": "2026-08-17T19:01:56.595119+00:00",
+      "evaluation_version": "legacy",
+      "engine_schema_version": "self-repair-history-v1",
+      "canonical_cause": "rc-37d5730e8251dfd7",
+      "created_at": "2026-08-17T19:01:56.595119+00:00",
+      "retry_count": 0
+    },
+    {
+      "root_cause_id": "rc-37d5730e8251dfd7",
+      "operator": "text_normalization",
+      "patch_signature": "295d0748102a7873324a088b4a22003fd401fa1425c7d092e456772248ed84e3",
+      "outcome": "rejected",
+      "rejection_stage": "no_behavior_change",
+      "rejection_reason": "Aucun scénario représentatif ciblé n'a changé.",
+      "files_changed": [
+        "system_action_controller.py",
+        "system_action_controller.py"
+      ],
+      "behavioral_effect": false,
+      "duration_seconds": 3.164,
+      "recorded_at": "2026-08-17T19:01:59.950278+00:00",
+      "evaluation_version": "legacy",
+      "engine_schema_version": "self-repair-history-v1",
+      "canonical_cause": "rc-37d5730e8251dfd7",
+      "created_at": "2026-08-17T19:01:59.950278+00:00",
+      "retry_count": 0
+    },
+    {
+      "root_cause_id": "rc-4fc8e49667d83384",
+      "operator": "context_priority",
+      "patch_signature": "f23c45cb6d3503730da8b1f290dc4d52fc0c2bbc60577e210b1884991dbcc5ef",
+      "outcome": "rejected",
+      "rejection_stage": "no_behavior_change",
+      "rejection_reason": "Aucun scénario représentatif ciblé n'a changé.",
+      "files_changed": [
+        "request_interpreter.py"
+      ],
+      "behavioral_effect": false,
+      "duration_seconds": 4.151,
+      "recorded_at": "2026-08-17T19:02:04.272708+00:00",
+      "evaluation_version": "legacy",
+      "engine_schema_version": "self-repair-history-v1",
+      "canonical_cause": "rc-4fc8e49667d83384",
+      "created_at": "2026-08-17T19:02:04.272708+00:00",
+      "retry_count": 0
+    },
+    {
+      "root_cause_id": "rc-4fc8e49667d83384",
+      "operator": "text_normalization",
+      "patch_signature": "295d0748102a7873324a088b4a22003fd401fa1425c7d092e456772248ed84e3",
+      "outcome": "rejected",
+      "rejection_stage": "no_behavior_change",
+      "rejection_reason": "Aucun scénario représentatif ciblé n'a changé.",
+      "files_changed": [
+        "system_action_controller.py",
+        "system_action_controller.py"
+      ],
+      "behavioral_effect": false,
+      "duration_seconds": 3.269,
+      "recorded_at": "2026-08-17T19:02:07.742307+00:00",
+      "evaluation_version": "legacy",
+      "engine_schema_version": "self-repair-history-v1",
+      "canonical_cause": "rc-4fc8e49667d83384",
+      "created_at": "2026-08-17T19:02:07.742307+00:00",
+      "retry_count": 0
+    },
+    {
+      "root_cause_id": "rc-01f5ccbcd1d62895",
+      "operator": "context_priority",
+      "patch_signature": "f23c45cb6d3503730da8b1f290dc4d52fc0c2bbc60577e210b1884991dbcc5ef",
+      "outcome": "rejected",
+      "rejection_stage": "no_behavior_change",
+      "rejection_reason": "Aucun scénario représentatif ciblé n'a changé.",
+      "files_changed": [
+        "request_interpreter.py"
+      ],
+      "behavioral_effect": false,
+      "localized_target": [
+        "request_interpreter.py:RequestInterpreter.interpret"
+      ],
+      "localization_confidence": 0.95,
+      "target_component_reached": true,
+      "target_symbol_reached": true,
+      "duration_seconds": 3.345,
+      "recorded_at": "2026-08-17T19:41:55.427381+00:00",
+      "evaluation_version": "legacy",
+      "engine_schema_version": "self-repair-history-v1",
+      "canonical_cause": "rc-01f5ccbcd1d62895",
+      "created_at": "2026-08-17T19:41:55.427381+00:00",
+      "retry_count": 0
+    },
+    {
+      "root_cause_id": "rc-701a952bc96f762d",
+      "operator": "document_routing",
+      "patch_signature": "2a402806c6d6848db1d4392af94bd8ea213c92ace2019a204440012c091bfcbf",
+      "outcome": "rejected",
+      "rejection_stage": "no_behavior_change",
+      "rejection_reason": "Aucun scénario représentatif ciblé n'a changé.",
+      "files_changed": [
+        "document_command_router.py"
+      ],
+      "behavioral_effect": false,
+      "localized_target": [
+        "document_command_router.py:handle_document_command"
+      ],
+      "localization_confidence": 0.95,
+      "target_component_reached": true,
+      "target_symbol_reached": true,
+      "duration_seconds": 3.036,
+      "recorded_at": "2026-08-17T19:41:58.626737+00:00",
+      "evaluation_version": "legacy",
+      "engine_schema_version": "self-repair-history-v1",
+      "canonical_cause": "rc-701a952bc96f762d",
+      "created_at": "2026-08-17T19:41:58.626737+00:00",
+      "retry_count": 0
+    },
+    {
+      "root_cause_id": "rc-940dbdb560d73302",
+      "operator": "confirmation",
+      "patch_signature": "933a96228bc50408fe35cc34b5ba50883671f4b9aec87e1ccaa0fa4812c96ae9",
+      "outcome": "rejected",
+      "rejection_stage": "no_behavior_change",
+      "rejection_reason": "Aucun scénario représentatif ciblé n'a changé.",
+      "files_changed": [
+        "system_action_controller.py"
+      ],
+      "behavioral_effect": false,
+      "localized_target": [
+        "system_action_controller.py:SystemActionController.handle_confirmation"
+      ],
+      "localization_confidence": 0.95,
+      "target_component_reached": true,
+      "target_symbol_reached": true,
+      "duration_seconds": 2.598,
+      "recorded_at": "2026-08-17T19:42:01.386692+00:00",
+      "evaluation_version": "legacy",
+      "engine_schema_version": "self-repair-history-v1",
+      "canonical_cause": "rc-940dbdb560d73302",
+      "created_at": "2026-08-17T19:42:01.386692+00:00",
+      "retry_count": 0
+    },
+    {
+      "root_cause_id": "rc-940dbdb560d73302",
+      "operator": "text_normalization",
+      "patch_signature": "295d0748102a7873324a088b4a22003fd401fa1425c7d092e456772248ed84e3",
+      "outcome": "rejected",
+      "rejection_stage": "no_behavior_change",
+      "rejection_reason": "Aucun scénario représentatif ciblé n'a changé.",
+      "files_changed": [
+        "system_action_controller.py",
+        "system_action_controller.py"
+      ],
+      "behavioral_effect": false,
+      "localized_target": [
+        "system_action_controller.py:SystemActionController.handle_confirmation"
+      ],
+      "localization_confidence": 0.95,
+      "target_component_reached": true,
+      "target_symbol_reached": true,
+      "duration_seconds": 2.657,
+      "recorded_at": "2026-08-17T19:42:04.205817+00:00",
+      "evaluation_version": "legacy",
+      "engine_schema_version": "self-repair-history-v1",
+      "canonical_cause": "rc-940dbdb560d73302",
+      "created_at": "2026-08-17T19:42:04.205817+00:00",
+      "retry_count": 0
+    },
+    {
+      "root_cause_id": "rc-666f81496b72991e",
+      "operator": "document_routing",
+      "patch_signature": "2a402806c6d6848db1d4392af94bd8ea213c92ace2019a204440012c091bfcbf",
+      "outcome": "rejected",
+      "rejection_stage": "no_behavior_change",
+      "rejection_reason": "Aucun scénario représentatif ciblé n'a changé.",
+      "files_changed": [
+        "document_command_router.py"
+      ],
+      "behavioral_effect": false,
+      "localized_target": [
+        "document_command_router.py:handle_document_command"
+      ],
+      "localization_confidence": 0.95,
+      "target_component_reached": true,
+      "target_symbol_reached": true,
+      "duration_seconds": 3.038,
+      "recorded_at": "2026-08-17T19:42:07.441146+00:00",
+      "evaluation_version": "legacy",
+      "engine_schema_version": "self-repair-history-v1",
+      "canonical_cause": "rc-666f81496b72991e",
+      "created_at": "2026-08-17T19:42:07.441146+00:00",
+      "retry_count": 0
+    },
+    {
+      "root_cause_id": "rc-8a2928f57982542c",
+      "operator": "intent_alias",
+      "patch_signature": "d8230d474bfcdaef78cf8f89f35168876e47fb720eb94f0552b6f6ae563b590a",
+      "outcome": "rejected",
+      "rejection_stage": "no_behavior_change",
+      "rejection_reason": "Aucun scénario représentatif ciblé n'a changé.",
+      "files_changed": [
+        "request_interpreter.py"
+      ],
+      "behavioral_effect": false,
+      "localized_target": [
+        "request_interpreter.py:RequestInterpreter.interpret"
+      ],
+      "localization_confidence": 0.95,
+      "target_component_reached": true,
+      "target_symbol_reached": true,
+      "duration_seconds": 3.959,
+      "recorded_at": "2026-08-17T19:42:11.566730+00:00",
+      "evaluation_version": "legacy",
+      "engine_schema_version": "self-repair-history-v1",
+      "canonical_cause": "rc-8a2928f57982542c",
+      "created_at": "2026-08-17T19:42:11.566730+00:00",
+      "retry_count": 0
+    },
+    {
+      "root_cause_id": "rc-940dbdb560d73302",
+      "operator": "confirmation",
+      "patch_signature": "9d79bd37a1dadf2dcff2da9f10bb6cea6524f69d58aef86ffc52583a3f55df27",
+      "outcome": "rejected",
+      "rejection_stage": "targeted_tests",
+      "rejection_reason": "Suite pytest locale échouée.",
+      "files_changed": [
+        "system_action_controller.py"
+      ],
+      "behavioral_effect": true,
+      "localized_target": [
+        "system_action_controller.py:SystemActionController.handle_confirmation"
+      ],
+      "localization_confidence": 0.95,
+      "target_component_reached": true,
+      "target_symbol_reached": true,
+      "duration_seconds": 35.348,
+      "recorded_at": "2026-08-17T20:09:35.829972+00:00",
+      "evaluation_version": "legacy",
+      "engine_schema_version": "self-repair-history-v1",
+      "canonical_cause": "rc-940dbdb560d73302",
+      "created_at": "2026-08-17T20:09:35.829972+00:00",
+      "retry_count": 0
+    },
+    {
+      "root_cause_id": "rc-666f81496b72991e",
+      "operator": "document_routing",
+      "patch_signature": "4cde73612c7e2ac12dcef7f3dbaa74b39c6ee2dfc2cb35210d9d15dbc427e825",
+      "outcome": "rejected",
+      "rejection_stage": "targeted_tests",
+      "rejection_reason": "Suite pytest locale échouée.",
+      "files_changed": [
+        "document_command_router.py"
+      ],
+      "behavioral_effect": true,
+      "localized_target": [
+        "document_command_router.py:handle_document_command"
+      ],
+      "localization_confidence": 0.95,
+      "target_component_reached": true,
+      "target_symbol_reached": true,
+      "duration_seconds": 36.765,
+      "recorded_at": "2026-08-17T20:10:12.783623+00:00",
+      "evaluation_version": "legacy",
+      "engine_schema_version": "self-repair-history-v1",
+      "canonical_cause": "rc-666f81496b72991e",
+      "created_at": "2026-08-17T20:10:12.783623+00:00",
+      "retry_count": 0
+    },
+    {
+      "root_cause_id": "rc-940dbdb560d73302",
+      "operator": "confirmation",
+      "patch_signature": "9d79bd37a1dadf2dcff2da9f10bb6cea6524f69d58aef86ffc52583a3f55df27",
+      "outcome": "rejected",
+      "rejection_stage": "patch_invalid",
+      "rejection_reason": "Patch identique déjà rejeté pour cette cause.",
+      "files_changed": [],
+      "behavioral_effect": false,
+      "localized_target": [
+        "system_action_controller.py:SystemActionController.handle_confirmation"
+      ],
+      "localization_confidence": 0.95,
+      "target_component_reached": false,
+      "target_symbol_reached": false,
+      "duration_seconds": 0.0,
+      "recorded_at": "2026-08-17T21:00:45.377820+00:00",
+      "evaluation_version": "legacy",
+      "engine_schema_version": "self-repair-history-v1",
+      "canonical_cause": "rc-940dbdb560d73302",
+      "created_at": "2026-08-17T21:00:45.377820+00:00",
+      "retry_count": 0
+    },
+    {
+      "root_cause_id": "rc-666f81496b72991e",
+      "operator": "document_routing",
+      "patch_signature": "b284449f74e1d2e00a9af5c0387e1dbe4c60fa546b9bf2204d0efa9ab8255da9",
+      "outcome": "rejected",
+      "rejection_stage": "insufficient_gain",
+      "rejection_reason": "Gain global insuffisant (0.25 < 0.50).",
+      "files_changed": [
+        "document_command_router.py"
+      ],
+      "behavioral_effect": true,
+      "localized_target": [
+        "document_command_router.py:handle_document_command"
+      ],
+      "localization_confidence": 0.95,
+      "target_component_reached": true,
+      "target_symbol_reached": true,
+      "train_gain": 0.356,
+      "duration_seconds": 39.69,
+      "recorded_at": "2026-08-17T21:01:25.086567+00:00",
+      "evaluation_version": "legacy",
+      "engine_schema_version": "self-repair-history-v1",
+      "canonical_cause": "rc-666f81496b72991e",
+      "created_at": "2026-08-17T21:01:25.086567+00:00",
+      "retry_count": 0
+    },
+    {
+      "root_cause_id": "rc-940dbdb560d73302",
+      "canonical_cause": "confirmation.ambiguous_positive_marker",
+      "operator": "confirmation",
+      "patch_signature": "9d79bd37a1dadf2dcff2da9f10bb6cea6524f69d58aef86ffc52583a3f55df27",
+      "outcome": "retry_authorized",
+      "rejection_stage": "targeted_tests",
+      "rejection_reason": "Suite pytest locale échouée.",
+      "evaluation_version": "fast-gate-v2",
+      "baseline_commit": "5ad59925ff81bfa9d4fc0d53667745978fdfe1a6",
+      "retry_count": 1,
+      "stale_reason": "legacy_targeted_tests_was_actually_full_pytest",
+      "engine_schema_version": "self-repair-history-v2",
+      "created_at": "2026-08-17T21:12:50.738093+00:00",
+      "recorded_at": "2026-08-17T21:12:50.738093+00:00"
+    },
+    {
+      "root_cause_id": "rc-940dbdb560d73302",
+      "operator": "confirmation",
+      "canonical_cause": "confirmation.ambiguous_positive_marker",
+      "baseline_commit": "5ad59925ff81bfa9d4fc0d53667745978fdfe1a6",
+      "patch_signature": "9d79bd37a1dadf2dcff2da9f10bb6cea6524f69d58aef86ffc52583a3f55df27",
+      "outcome": "rejected",
+      "rejection_stage": "insufficient_gain",
+      "rejection_reason": "Gain global insuffisant (0.33 < 0.50).",
+      "files_changed": [
+        "system_action_controller.py"
+      ],
+      "behavioral_effect": true,
+      "localized_target": [
+        "system_action_controller.py:SystemActionController.handle_confirmation"
+      ],
+      "localization_confidence": 0.95,
+      "target_component_reached": true,
+      "target_symbol_reached": true,
+      "train_gain": 0.475,
+      "duration_seconds": 39.709,
+      "evaluation_version": "fast-gate-v2",
+      "engine_schema_version": "self-repair-history-v2",
+      "retry_count": 0,
+      "created_at": "2026-08-17T21:13:30.459189+00:00",
+      "recorded_at": "2026-08-17T21:13:30.459189+00:00"
+    },
+    {
+      "root_cause_id": "rc-666f81496b72991e",
+      "operator": "document_routing",
+      "canonical_cause": "document.attachment_correction_priority",
+      "baseline_commit": "5ad59925ff81bfa9d4fc0d53667745978fdfe1a6",
+      "patch_signature": "b284449f74e1d2e00a9af5c0387e1dbe4c60fa546b9bf2204d0efa9ab8255da9",
+      "outcome": "rejected",
+      "rejection_stage": "patch_invalid",
+      "rejection_reason": "Patch identique déjà rejeté pour cette cause.",
+      "files_changed": [],
+      "behavioral_effect": false,
+      "localized_target": [
+        "document_command_router.py:handle_document_command"
+      ],
+      "localization_confidence": 0.95,
+      "target_component_reached": false,
+      "target_symbol_reached": false,
+      "duration_seconds": 0.0,
+      "evaluation_version": "fast-gate-v2",
+      "engine_schema_version": "self-repair-history-v2",
+      "retry_count": 0,
+      "created_at": "2026-08-17T21:13:30.663359+00:00",
+      "recorded_at": "2026-08-17T21:13:30.663359+00:00"
+    },
+    {
+      "root_cause_id": "rc-940dbdb560d73302",
+      "operator": "confirmation",
+      "canonical_cause": "confirmation.ambiguous_positive_marker",
+      "baseline_commit": "306d3812e2a455450f31ecf37fe523eca8e5b4a5",
+      "patch_signature": "9d79bd37a1dadf2dcff2da9f10bb6cea6524f69d58aef86ffc52583a3f55df27",
+      "outcome": "rejected",
+      "rejection_stage": "patch_invalid",
+      "rejection_reason": "Patch identique déjà rejeté pour cette cause.",
+      "files_changed": [],
+      "behavioral_effect": false,
+      "localized_target": [
+        "system_action_controller.py:SystemActionController.handle_confirmation"
+      ],
+      "localization_confidence": 0.95,
+      "target_component_reached": false,
+      "target_symbol_reached": false,
+      "duration_seconds": 0.0,
+      "bundle_composable": false,
+      "evaluation_version": "fast-gate-v2",
+      "engine_schema_version": "self-repair-history-v2",
+      "retry_count": 0,
+      "created_at": "2026-08-18T12:42:52.007815+00:00",
+      "recorded_at": "2026-08-18T12:42:52.007815+00:00"
+    },
+    {
+      "root_cause_id": "rc-666f81496b72991e",
+      "operator": "document_routing",
+      "canonical_cause": "document.attachment_correction_priority",
+      "baseline_commit": "be9e60faa609817a7f7cf507c51f6011a541ad0e",
+      "patch_signature": "b284449f74e1d2e00a9af5c0387e1dbe4c60fa546b9bf2204d0efa9ab8255da9",
+      "outcome": "rejected",
+      "rejection_stage": "patch_invalid",
+      "rejection_reason": "Patch identique déjà rejeté pour cette cause.",
+      "files_changed": [],
+      "behavioral_effect": false,
+      "localized_target": [
+        "document_command_router.py:handle_document_command"
+      ],
+      "localization_confidence": 0.95,
+      "target_component_reached": false,
+      "target_symbol_reached": false,
+      "duration_seconds": 0.0,
+      "bundle_composable": false,
+      "evaluation_version": "fast-gate-v2",
+      "engine_schema_version": "self-repair-history-v2",
+      "retry_count": 0,
+      "created_at": "2026-08-18T15:25:53.309783+00:00",
+      "recorded_at": "2026-08-18T15:25:53.309783+00:00"
+    },
+    {
+      "root_cause_id": "rc-940dbdb560d73302",
+      "operator": "confirmation",
+      "canonical_cause": "confirmation.ambiguous_positive_marker",
+      "baseline_commit": "3296aeca0241f4c6640d17b56f74fe483868bd01",
+      "patch_signature": "9d79bd37a1dadf2dcff2da9f10bb6cea6524f69d58aef86ffc52583a3f55df27",
+      "outcome": "rejected",
+      "rejection_stage": "internal_error",
+      "rejection_reason": "Le working tree principal doit être propre avant un cycle réel.",
+      "files_changed": [],
+      "behavioral_effect": false,
+      "localized_target": [
+        "system_action_controller.py:SystemActionController.handle_confirmation"
+      ],
+      "localization_confidence": 0.95,
+      "target_component_reached": false,
+      "target_symbol_reached": false,
+      "duration_seconds": 0.053,
+      "bundle_composable": false,
+      "evaluation_version": "fast-gate-v2",
+      "engine_schema_version": "self-repair-history-v2",
+      "retry_count": 0,
+      "created_at": "2026-08-18T15:34:24.773091+00:00",
+      "recorded_at": "2026-08-18T15:34:24.773091+00:00"
+    },
+    {
+      "root_cause_id": "rc-666f81496b72991e",
+      "canonical_cause": "document.attachment_correction_priority",
+      "operator": "document_routing",
+      "patch_signature": "b284449f74e1d2e00a9af5c0387e1dbe4c60fa546b9bf2204d0efa9ab8255da9",
+      "outcome": "retry_authorized",
+      "rejection_stage": "insufficient_gain",
+      "rejection_reason": "Réévaluation autorisée pour historique insufficient_gain legacy ou pré-Bundle.",
+      "evaluation_version": "fast-gate-v2",
+      "baseline_commit": "3296aeca0241f4c6640d17b56f74fe483868bd01",
+      "retry_count": 1,
+      "stale_reason": "legacy_targeted_tests_was_actually_full_pytest",
+      "engine_schema_version": "self-repair-history-v2",
+      "created_at": "2026-08-18T15:34:24.796284+00:00",
+      "recorded_at": "2026-08-18T15:34:24.796284+00:00"
+    },
+    {
+      "root_cause_id": "rc-666f81496b72991e",
+      "operator": "document_routing",
+      "canonical_cause": "document.attachment_correction_priority",
+      "baseline_commit": "3296aeca0241f4c6640d17b56f74fe483868bd01",
+      "patch_signature": "b284449f74e1d2e00a9af5c0387e1dbe4c60fa546b9bf2204d0efa9ab8255da9",
+      "outcome": "rejected",
+      "rejection_stage": "internal_error",
+      "rejection_reason": "Le working tree principal doit être propre avant un cycle réel.",
+      "files_changed": [],
+      "behavioral_effect": false,
+      "localized_target": [
+        "document_command_router.py:handle_document_command"
+      ],
+      "localization_confidence": 0.95,
+      "target_component_reached": false,
+      "target_symbol_reached": false,
+      "duration_seconds": 0.057,
+      "bundle_composable": false,
+      "evaluation_version": "fast-gate-v2",
+      "engine_schema_version": "self-repair-history-v2",
+      "retry_count": 0,
+      "created_at": "2026-08-18T15:34:24.866828+00:00",
+      "recorded_at": "2026-08-18T15:34:24.866828+00:00"
+    },
+    {
+      "root_cause_id": "rc-940dbdb560d73302",
+      "operator": "confirmation",
+      "canonical_cause": "confirmation.ambiguous_positive_marker",
+      "baseline_commit": "b3a25e2a4081c9d1b380ebdeb6169db1dc296561",
+      "patch_signature": "9d79bd37a1dadf2dcff2da9f10bb6cea6524f69d58aef86ffc52583a3f55df27",
+      "outcome": "rejected",
+      "rejection_stage": "insufficient_gain",
+      "rejection_reason": "Gain global insuffisant (0.34 < 0.50).",
+      "files_changed": [
+        "system_action_controller.py"
+      ],
+      "behavioral_effect": true,
+      "localized_target": [
+        "system_action_controller.py:SystemActionController.handle_confirmation"
+      ],
+      "localization_confidence": 0.95,
+      "target_component_reached": true,
+      "target_symbol_reached": true,
+      "train_gain": 0.479,
+      "duration_seconds": 43.187,
+      "bundle_composable": true,
+      "evaluation_version": "fast-gate-v2",
+      "engine_schema_version": "self-repair-history-v2",
+      "retry_count": 0,
+      "created_at": "2026-08-18T17:12:28.828961+00:00",
+      "recorded_at": "2026-08-18T17:12:28.828961+00:00"
+    },
+    {
+      "root_cause_id": "rc-666f81496b72991e",
+      "operator": "document_routing",
+      "canonical_cause": "document.attachment_correction_priority",
+      "baseline_commit": "b3a25e2a4081c9d1b380ebdeb6169db1dc296561",
+      "patch_signature": "b284449f74e1d2e00a9af5c0387e1dbe4c60fa546b9bf2204d0efa9ab8255da9",
+      "outcome": "rejected",
+      "rejection_stage": "insufficient_gain",
+      "rejection_reason": "Gain global insuffisant (0.25 < 0.50).",
+      "files_changed": [
+        "document_command_router.py"
+      ],
+      "behavioral_effect": true,
+      "localized_target": [
+        "document_command_router.py:handle_document_command"
+      ],
+      "localization_confidence": 0.95,
+      "target_component_reached": true,
+      "target_symbol_reached": true,
+      "train_gain": 0.359,
+      "duration_seconds": 41.735,
+      "bundle_composable": true,
+      "evaluation_version": "fast-gate-v2",
+      "engine_schema_version": "self-repair-history-v2",
+      "retry_count": 0,
+      "created_at": "2026-08-18T17:13:10.819528+00:00",
+      "recorded_at": "2026-08-18T17:13:10.819528+00:00"
+    },
+    {
+      "root_cause_id": "bundle:rc-666f81496b72991e+rc-940dbdb560d73302",
+      "canonical_cause": "bundle-v1",
+      "baseline_commit": "b3a25e2a4081c9d1b380ebdeb6169db1dc296561",
+      "operator": "bundle:confirmation+document_routing",
+      "patch_signature": "854f91e741d264ec6cac53bc61daa6b4c0586625ce7ebc0080128b7d4fa3b6bf",
+      "outcome": "accepted",
+      "rejection_reason": "",
+      "files_changed": [
+        "document_command_router.py",
+        "system_action_controller.py"
+      ],
+      "bundle_size": 2,
+      "bundle_member_signatures": [
+        "9d79bd37a1dadf2dcff2da9f10bb6cea6524f69d58aef86ffc52583a3f55df27",
+        "b284449f74e1d2e00a9af5c0387e1dbe4c60fa546b9bf2204d0efa9ab8255da9"
+      ],
+      "evaluation_version": "fast-gate-v2",
+      "engine_schema_version": "self-repair-history-v2",
+      "retry_count": 0,
+      "stale_reason": null,
+      "created_at": "2026-08-18T17:13:55.730855+00:00",
+      "recorded_at": "2026-08-18T17:13:55.730855+00:00"
+    }
+  ]
+}

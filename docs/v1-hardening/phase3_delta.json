@@ -1,0 +1,10 @@
+{
+  "baseline": {"PASS": 17, "PARTIAL": 3, "BLOCKED_EXPECTED": 4, "FAIL": 0, "BLOCKED_EXTERNAL": 0, "NOT_EXECUTABLE": 16, "total": 40},
+  "phase3": {"PASS": 20, "PARTIAL": 0, "BLOCKED_EXPECTED": 4, "FAIL": 0, "BLOCKED_EXTERNAL": 0, "NOT_EXECUTABLE": 16, "total": 40},
+  "delta": {"PASS": 3, "PARTIAL": -3, "BLOCKED_EXPECTED": 0, "FAIL": 0, "BLOCKED_EXTERNAL": 0, "NOT_EXECUTABLE": 0},
+  "rerun_scope": {"previously_partial": 3, "previously_not_executable": 16},
+  "strict_pass_rate": 0.5,
+  "actionable_success_rate": 1.0,
+  "actionable_success_denominator": 24,
+  "note": "The legacy payloads needed to execute the remaining 16 scenarios are not present in the versioned Phase 2 artifacts. No result was inferred from titles or categories."
+}
