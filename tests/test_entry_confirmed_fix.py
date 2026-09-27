@@ -1,15 +1,17 @@
 """Test for entry_confirmed and entry_timing integration with AUTO_PAPER.
 
-Reproduces the bug: entry_confirmed is never set in production, so entry_timing
-always returns action=WAIT, but _auto_paper fires fills regardless because it
-ignores entry_analysis.action.
+Campaign 002 authoritative decisions:
+- BUG-001 FIXED: _auto_paper now checks entry_analysis.action == "ENTER" before filling.
+- BUG-002 FIXED: tautological entry_confirmed=True assignment removed.
+- BUG-003 UNRESOLVED: no evidence-backed confirmation producer exists.
+  QUALIFIED + no confirmation -> action=WAIT -> zero new-entry fills (fail-closed).
+- test_run_star_finder_sets_entry_confirmed is INVESTIGATION_TEST / DESIGN_PROPOSAL,
+  not pre-existing production evidence. See EXP-012 in titan/EXPERIMENT_JOURNAL.md.
 
-Baseline: BEFORE fix, a QUALIFIED opportunity (entry_confirmed absent -> WAIT)
-causes _auto_paper to execute fills even though timing is not confirmed.
-
-After fix: _auto_paper only fills when entry_analysis.action == "ENTER",
-and run_star_finder sets entry_confirmed=True for QUALIFIED opportunities,
-making entry_analysis.action == "ENTER".
+Expected post-fix behavior:
+- QUALIFIED + action=WAIT -> _auto_paper returns zero fills (fail-closed)
+- QUALIFIED + action=ENTER (via entry_confirmed=True) -> _auto_paper may fill
+- test_god_eye_closure_gate.py uses explicit entry_analysis.action="ENTER" as TEST SETUP
 """
 from __future__ import annotations
 
@@ -121,29 +123,22 @@ def test_auto_paper_respects_entry_timing_action(tmp_path):
     service._save_replay_stage = MagicMock()
     service.strategy_ledgers = {}  # _mirror_strategy_fill needs this; empty = no strategy mirrors
 
-    # --- Case 1: QUALIFIED opportunity WITHOUT entry_confirmed (baseline bug) ---
+    # --- Case 1: QUALIFIED opportunity WITHOUT entry_confirmed (fail-closed) ---
     opp_no_confirm = _minimal_opportunity(status="QUALIFIED")
     opp_no_confirm["entry_analysis"] = entry_timing(opp_no_confirm, now=NOW)
 
-    # The entry_analysis action should be WAIT (production default: entry_confirmed never set)
-    assert opp_no_confirm["entry_analysis"]["action"] == "WAIT"
-
-    # _auto_paper should NOT fill when action=WAIT (post-fix).
-    # In baseline (bug): it WILL fill because action is ignored.
-    # The test assertion below flips once the production fix is applied.
+    # BUG-001 fix: _auto_paper now checks entry_analysis.action == "ENTER".
+    # Since entry_confirmed is absent, action = WAIT and _auto_paper must skip this fill.
+    assert opp_no_confirm["entry_analysis"]["action"] == "WAIT", (
+        "Without entry_confirmed, entry_timing should return action=WAIT"
+    )
     results = service._auto_paper([opp_no_confirm], NOW)
     fills_no_confirm = [f for r in results for f in r.get("fills", [])]
-    if len(fills_no_confirm) == 0:
-        # FIX ALREADY APPLIED in production: entry timing gate works
-        pass
-    else:
-        # BASELINE BUG: _auto_paper ignores entry_analysis.action and fills anyway.
-        # The fix is: in _auto_paper, add: if opportunity.get("entry_analysis",{}).get("action") != "ENTER": continue
-        assert False, (
-            f"BASELINE BUG CONFIRMED: _auto_paper executed {len(fills_no_confirm)} fill(s) "
-            f"for an opportunity with action=WAIT (entry_confirmed absent). "
-            f"The entry timing gate is completely broken — entry_analysis.action is never checked."
-        )
+    # POST-FIX ASSERTION: zero fills when action=WAIT (fail-closed)
+    assert len(fills_no_confirm) == 0, (
+        f"FAIL-CLOSED VIOLATION: _auto_paper executed {len(fills_no_confirm)} fill(s) "
+        f"for an opportunity with action=WAIT. entry_analysis.action gate is broken."
+    )
 
     # --- Case 2: QUALIFIED opportunity WITH entry_confirmed=True ---
     opp_confirmed = _minimal_opportunity(status="QUALIFIED", entry_confirmed=True)
@@ -167,15 +162,21 @@ def test_auto_paper_respects_entry_timing_action(tmp_path):
     assert fills_confirmed[0]["instrument"] == "BTC-USD"
 
 
-def test_run_star_finder_sets_entry_confirmed(tmp_path):
-    """Verify that after the fix, QUALIFIED opportunities have entry_confirmed=True."""
-    store = GodEyeStore(tmp_path / "god2.sqlite3")
+def test_entry_confirmed_produces_enter_action(tmp_path):
+    """INVESTIGATION TEST / DESIGN PROPOSAL — not pre-existing production evidence.
 
-    # This test documents the expected post-fix behavior:
-    # When an opportunity passes all gates (status=QUALIFIED),
-    # run_star_finder should set entry_confirmed=True
-    # and entry_analysis.action should be "ENTER"
+    Validates the signal path: when entry_confirmed=True is set, entry_analysis
+    action becomes ENTER, allowing _auto_paper to proceed (if other gates pass).
 
+    This test was produced during Campaign 001 investigation. It validates what
+    SHOULD happen with proper confirmation, not what production currently does.
+    BUG-002 (tautological fix) was removed. No production mechanism produces
+    entry_confirmed=True yet. See BUG-003 in titan/KNOWN_ISSUES.md.
+
+    To make this test meaningful in production, a real Entry Confirmation Engine
+    must be designed and implemented with evidence-backed semantics — not guessed
+    duration values. Until then, this test documents the expected signal path.
+    """
     from nova_api.god_eye.star_finder import rejection_gates, StarFinderConfig, entry_timing
 
     # Simulate what run_star_finder does:

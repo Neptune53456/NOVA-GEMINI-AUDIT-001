@@ -19,27 +19,22 @@ GodEyeScheduler
               ├── expected_net_return()
               ├── _event_fusion_for()
               ├── rejection_gates()           -> status = QUALIFIED or REJECTED
-              ├── entry_confirmed = True for QUALIFIED (TAUTOLOGICAL - BUG-002)
               ├── entry_timing()              -> entry_analysis.action = ENTER/WAIT/IGNORE
               ├── star_score()
               ├── store.save_star_opportunity()
               ├── lifecycle_transition()
-              └── _auto_paper()               -> EXECUTION (BUGGY - no entry_analysis.action check)
+              └── _auto_paper()               -> EXECUTION (FIXED - entry_analysis.action gate enforced)
 ```
 
 ### _auto_paper Execution Gate
 
 Location: service.py:486-522
 
-Current gate logic (BUGGY):
+**POST-FIX gate logic (Campaign 002):**
   if status != QUALIFIED: continue
+  if entry_analysis.action != "ENTER": continue   # FIXED — fail-closed
   if risk_approved is False or kill_switch: continue
-  # execute fill -- entry_analysis.action NEVER CHECKED
-
-Intended gate logic:
-  if status != QUALIFIED: continue
-  if entry_analysis.action != "ENTER": continue   # MISSING
-  if risk_approved is False or kill_switch: continue
+  # execute fill
 
 ### entry_timing Signal Path
 

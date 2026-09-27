@@ -488,6 +488,7 @@ class GodEyeService:
         actions=[]
         for opportunity in opportunities:
             if opportunity.get("status")!="QUALIFIED":continue
+            if opportunity.get("entry_analysis",{}).get("action")!="ENTER": continue
             if opportunity.get("risk_approved") is False or self.trader_kill_switch: continue
             price=float(opportunity["reference_price"]); notional=self.trader.size(opportunity)
             cost=dict(opportunity.get("cost_estimate",{}))
@@ -972,8 +973,6 @@ class GodEyeService:
             opportunity["rejection_reasons"]=rejection_gates(opportunity,self.star_finder_config)
             opportunity["status"]="REJECTED" if opportunity["rejection_reasons"] else "QUALIFIED"
             opportunity["star_score"]=star_score(opportunity)["score"]; opportunity["score_explanation"]=star_score(opportunity)
-            if opportunity["status"]=="QUALIFIED":
-                opportunity["entry_confirmed"]=True
             opportunity["entry_analysis"]=entry_timing(opportunity,now=now)
             inserted=self.store.save_star_opportunity(opportunity)
             if inserted:

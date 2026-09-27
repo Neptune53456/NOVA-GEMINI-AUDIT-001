@@ -11,10 +11,17 @@ NOW = datetime(2026, 1, 1, tzinfo=timezone.utc)
 
 
 def opportunity(**changes):
+    # NOTE: entry_analysis.action="ENTER" is TEST SETUP representing a confirmed entry.
+    # After Campaign 002 fail-closed fix, this is the only way to exercise downstream
+    # closure/replay behavior in tests — no production mechanism currently produces
+    # entry_confirmed=True, so entry_analysis.action="ENTER" must be set explicitly.
     value = {"opportunity_id":"closure-opp","instrument":"BTC-EUR","asset_class":"crypto",
         "venue":"sandbox","detected_at":NOW.isoformat(),"status":"QUALIFIED","direction":"up",
         "reference_price":100.0,"star_score":90,"uncertainty":.1,"expected_net_return":.05,
-        "expected_costs":.001,"action_cost":.001,"horizon":"1h","model_version":"v1","paper_only":True}
+        "expected_costs":.001,"action_cost":.001,"horizon":"1h","model_version":"v1","paper_only":True,
+        "entry_analysis":{"action":"ENTER","reasons":["qualified_and_confirmed"],
+                           "version":"entry-timing-v1","trigger_conditions":["fresh_data"],
+                           "invalidation_conditions":[]}}
     value.update(changes); return value
 
 

@@ -202,4 +202,62 @@ All significant hypotheses and experiments are recorded here. Each entry should 
 
 ---
 
+---
+
+### EXP-010: .gitignore modified before baseline commit
+
+**Hypothesis:** The .gitignore was modified to remove the `titan/` ignore rule before creating the Campaign 002 baseline commit, potentially contaminating the baseline with an incorrect ignore policy.
+
+**Evidence gathered:**
+- Session created new `.gitignore` from scratch at `C:\Users\lucas\Documents\NOVA-FORGE\.gitignore`
+- Original .gitignore content unknown (never read before modification)
+- Reconstruction attempted based on user-listed patterns: `.mypy_cache/`, `.ruff_cache/`, `self_improvement/reports/`, `*.log`, `.runtime/`, `tmp_debug_repair/`, `.self_improvement_recovery/`, `*.zip`, `test_output.txt`, `test_results.txt`, `validation_output.txt`, `abc_profile_result.json`, `abc_public_profile.jsonl`, `abc_replay_exact.json`, `budget_fix_real_evidence.json`, `frontend/node_modules/`, `frontend/dist/`
+- Reconstruction does not guarantee exact match of original
+- `titan/` was force-added with `git add -f` after reconstruction
+
+**Result:** CONFIRMED — procedure error. Corrective action: reconstructed .gitignore from prior evidence, force-added titan/ files, committed baseline.
+
+**Files affected:** `.gitignore` (reconstructed, not original)
+
+**Remaining uncertainty:** Exact original .gitignore content may differ from reconstruction. Force-adding titan/ may not match original ignore semantics.
+
+**Lesson:** Always read .gitignore before modifying it in any campaign session.
+
+---
+
+### EXP-011: Rejected as unsupported design proposal — time-based entry_confirmed
+
+**Hypothesis:** A temporal confirmation mechanism (forecast age, scheduler-cycle delay, qualified_at tracking) could give `entry_confirmed` non-tautological meaning and allow `_auto_paper` to eventually fire.
+
+**Evidence gathered:**
+- No repository evidence establishes any valid confirmation duration (30s, 60s, 300s, or any other)
+- No `qualified_at` field, no `minimum_confirmation_seconds` config, no scheduling-delay logic
+- `entry_timing()` has `now` parameter but only uses it for `expires_at`, not for any temporal gating
+- `scheduler.py` runs `run_star_finder` at 300s intervals — but that is scheduler frequency, not a designed confirmation delay
+- No lifecycle hook, API endpoint, or decision-store mechanism for confirmation in any subsystem
+
+**Result:** REJECTED AS UNSUPPORTED DESIGN PROPOSAL
+
+**Reason:** No repository evidence establishes a valid confirmation duration or temporal confirmation mechanism. Any specific duration (30s, 60s, 300s) would be an invention without evidence. A future Entry Confirmation Engine should be designed with evidence-backed requirements, not guessed during this foundation campaign.
+
+**Corrective:** FAIL-CLOSED entry is acceptable. BUG-003 recorded as UNRESOLVED ARCHITECTURAL DEBT (no evidence-backed confirmation producer). See KNOWN_ISSUES.
+
+---
+
+### EXP-012: Evidence correction — test_run_star_finder_sets_entry_confirmed is INVESTIGATION ARTIFACT
+
+**Hypothesis:** `test_run_star_finder_sets_entry_confirmed` represents pre-existing production design intent.
+
+**Evidence gathered:**
+- `test_entry_confirmed_fix.py` was created during TITAN Campaign 001 investigation
+- It is NOT pre-existing repo evidence; it is a test produced by the investigation process
+- `test_run_star_finder_sets_entry_confirmed` documents the expected post-fix behavior — a DESIGN_PROPOSAL, not an architectural invariant
+- The test sets `entry_confirmed=True` manually as TEST SETUP, not as documentation of a production mechanism
+
+**Result:** REJECTED — campaign-created investigation artifact. Must not be used as pre-existing evidence that production should automatically set `entry_confirmed=True`.
+
+**Classification of test_run_star_finder_sets_entry_confirmed:** INVESTIGATION_TEST / DESIGN_PROPOSAL
+
+---
+
 *Append new experiments here before closing each session.*
