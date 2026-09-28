@@ -277,10 +277,21 @@ class GoalRunner:
                 raise ValueError("mission_store_unavailable")
             self.context.missions.store.get(mission_id)
         normalized = self._validate_plan(plan)
+        required_readback = None
+        for step in normalized:
+            if step["capability_id"] != "filesystem.read":
+                continue
+            path = step["arguments"].get("path")
+            content = step["verification"].get("content")
+            if isinstance(path, str) and isinstance(content, str) and success_criteria == (
+                    f"{path} exists in the allowed workspace and its content equals {content}"):
+                required_readback = {"path": path, "content": content}
+                break
         now = _now()
         goal = GoalExecution(uuid4().hex, mission_id, conversation_id, objective.strip(), success_criteria.strip(),
             "pending", "understand", 1, 0, 0, 0, 0, 0, planning_calls, now, now, normalized, [], [],
-            {"completed_step_ids": [], "plan_version": 1, "next_phase": "execute"},
+            {"completed_step_ids": [], "plan_version": 1, "next_phase": "execute",
+             "required_readback": required_readback},
             {"planning_calls": planning_calls, "model_turns": 0, "elapsed_ms": 0})
         self.store.save(goal)
         self.journal.append("goal.started", goal_id=goal.goal_id, mission_id=mission_id, conversation_id=conversation_id, status="pending")
@@ -636,6 +647,15 @@ class GoalRunner:
     @staticmethod
     def _success_criterion_verified(goal: GoalExecution, verified_ids: set[str]) -> bool:
         """Require exact readback evidence for a backend-derived file criterion."""
+        required = goal.checkpoint.get("required_readback")
+        if isinstance(required, dict):
+            return any(
+                step["capability_id"] == "filesystem.read"
+                and step["step_id"] in verified_ids
+                and step["arguments"].get("path") == required.get("path")
+                and step["verification"].get("content") == required.get("content")
+                for step in goal.plan
+            )
         derived = InitialGoalPlanner.derive_success_criterion(goal.plan)
         if derived != goal.success_criteria:
             return True
@@ -680,18 +700,48 @@ class GoalRunner:
     def _replan_or_block(self, goal: GoalExecution, reason: str) -> GoalExecution:
         if goal.failed_steps >= self.budgets.max_failed_steps or goal.replans >= self.budgets.max_replans:
             return self._terminal(goal, "blocked", reason)
-        if self.planner is None:
+        if self.planner is None and self.initial_planner is None:
             return self._terminal(goal, "blocked", reason)
+        remaining_calls = self.budgets.max_model_calls - goal.model_calls
+        if remaining_calls < 1:
+            return self._terminal(goal, "blocked", "model_call_budget_exceeded")
         package = self.context.build(goal.objective, conversation_id=goal.conversation_id)
-        plan = self._validate_plan(self.planner.replan(goal.objective, package.content, goal))
+        failed = goal.plan[goal.current_step]
+        failure_context = (
+            f"Previous action failed: {failed['capability_id']} "
+            f"target={str(failed.get('arguments', {}).get('path', ''))[:160]}; "
+            f"reason={reason}; observation={goal.evidence[-1]['summary'][:500] if goal.evidence else 'none'}. "
+            "Choose a different action or obtain new evidence before retrying. "
+            "The original objective and success condition remain in force."
+        )
+        try:
+            if self.planner is not None:
+                raw_plan = self.planner.replan(goal.objective, failure_context + "\n" + package.content, goal)
+                used_calls = 1
+            else:
+                from .context_builder import ContextPackage
+                replanned = self.initial_planner.plan(
+                    goal.objective,
+                    ContextPackage(failure_context + "\n" + package.content, 0, (), ()),
+                    max_model_calls=remaining_calls, conversation_id=goal.conversation_id,
+                    mission_id=goal.mission_id,
+                )
+                raw_plan = replanned.semantic_steps()
+                used_calls = replanned.model_calls
+            plan = self._validate_plan(raw_plan)
+        except (InitialPlanInvalid, ValueError, WorkspacePathError):
+            return self._terminal(goal, "blocked", "replan_invalid")
         if not plan:
             return self._terminal(goal, "blocked", "replan_empty")
+        if (action_fingerprint(plan[0]["capability_id"], plan[0]["arguments"])
+                == action_fingerprint(failed["capability_id"], failed["arguments"])):
+            return self._terminal(goal, "blocked", "repeated_failed_action")
         checkpoint = dict(goal.checkpoint)
         checkpoint.update({"plan_version": goal.plan_version + 1, "reason_for_replan": reason,
                            "supersedes": goal.plan_version, "next_phase": "execute"})
         goal = self._save(goal, status="running", phase="execute", plan=plan, current_step=0,
                           plan_version=goal.plan_version + 1, replans=goal.replans + 1,
-                          model_calls=goal.model_calls + 1, checkpoint=checkpoint)
+                          model_calls=goal.model_calls + used_calls, checkpoint=checkpoint)
         self.journal.append("goal.replanned", goal_id=goal.goal_id, mission_id=goal.mission_id, status="running", error_category=reason)
         return goal
 

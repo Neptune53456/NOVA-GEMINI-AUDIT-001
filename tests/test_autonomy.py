@@ -69,8 +69,9 @@ def test_no_progress_is_bounded_by_replans_and_failed_steps(tmp_path):
     goal = runner.create("c", "Find missing", "file read verified", failed)
     blocked = runner.run(goal.goal_id)
     assert blocked.status == "blocked"
-    assert blocked.replans == 2 and blocked.failed_steps == 3
-    assert planner.calls == 2
+    assert blocked.replans == 0 and blocked.failed_steps == 1
+    assert blocked.blockers[-1] == "repeated_failed_action"
+    assert planner.calls == 1
 
 
 def test_restart_preserves_completed_steps_and_does_not_replay_write(tmp_path):
